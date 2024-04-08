@@ -24,6 +24,12 @@ window.addEventListener('keydown', function(e) {
     textInput.value += e.key;
   }
 
+  if (e.code === 'Space') {
+    e.preventDefault();
+    textInput.focus();
+    textInput.value += ' ';
+  }
+
   for (let i = 0; i < keys.length; i++) {
     if (
       (e.key == keys[i].getAttribute('keyname') ||
@@ -33,10 +39,6 @@ window.addEventListener('keydown', function(e) {
       keys[i].classList.add('active');
     }
 
-    if (e.code == 'Space') {
-      spaceKey.classList.add('active');
-      textInput.value += ' ';
-    }
     if (e.code == 'ShiftLeft') {
       shift_right.classList.remove('active');
     }
